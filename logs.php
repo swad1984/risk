@@ -18,11 +18,11 @@ try {
 	$ins = null;
 	// Получаем список доступных серверов для загрузки логов
 	foreach ($x as $z ) {
-	print_r($z);
+	if ($debug) { print_r($z); }
 	echo "<br>";
 
 	$sql = "select sys_ip, server, ltype from sme.connections c left join sme_hooks.risk_logs s on c.sys_ip=s.server and ltype='".$z[0]."'";
-	echo $sql;
+	if ($debug) { echo $sql; }
 	echo "<br>";
 	$ins = $conn->prepare($sql);
 	$ins->execute();
