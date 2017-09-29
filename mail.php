@@ -25,20 +25,20 @@ try {
 
 	$email = 'Rychazhkov-AI@mail.ca.sbrf.ru;Ehanurova-EN@mail.ca.sbrf.ru;transactsm-sme@mail.ca.sbrf.ru;Kashin-IA@mail.ca.sbrf.ru;';
 	//transactsm-sme@mail.ca.sbrf.ru;Ehanurova-EN@mail.ca.sbrf.ru;Kashin-IA@mail.ca.sbrf.ru;
-	$subj = 'Óñòàíîâêà ñòðàòåãèé íà '.$stend;
-	$temai = 'Äîáðûé äåíü!
-Óñòàíîâêà ñòðàòåãèé íà ñòåíä '.$stend.', ñåðâåð '.$argv[1].', âûïîëíåíà óñïåøíî
+	$subj = 'Ã“Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  Ã±Ã²Ã°Ã Ã²Ã¥Ã£Ã¨Ã© Ã­Ã  '.$stend;
+	$temai = 'Ã„Ã®Ã¡Ã°Ã»Ã© Ã¤Ã¥Ã­Ã¼!
+Ã“Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  Ã±Ã²Ã°Ã Ã²Ã¥Ã£Ã¨Ã© Ã­Ã  Ã±Ã²Ã¥Ã­Ã¤ '.$stend.', Ã±Ã¥Ã°Ã¢Ã¥Ã° '.$argv[1].', Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­Ã  Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã®
 
 _______________
-Ñ óâàæåíèåì,
-ÀÑ TransactSM ÑÌÏ
+Ã‘ Ã³Ã¢Ã Ã¦Ã¥Ã­Ã¨Ã¥Ã¬,
+Ã€Ã‘ TransactSM Ã‘ÃŒÃ
 
 ';
-
+	echo "first test";
 	$conn->beginTransaction();
 	$mail->execute();
 	$conn->commit();
-	echo "Ðåçóëüòàò îòïðàâêè ñîîáùåíèÿ
+	echo "ÃÃ¥Ã§Ã³Ã«Ã¼Ã²Ã Ã² Ã®Ã²Ã¯Ã°Ã Ã¢ÃªÃ¨ Ã±Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¿
 	";
 	print_r($mail->errorInfo());
 	$conn->query("update sme_hooks.risk_servers set res=2 where lower(server) = lower('".$argv[1]."')");
