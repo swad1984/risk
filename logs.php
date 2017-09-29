@@ -1,6 +1,7 @@
 <?php
+include "settings.php";
 include "connect.php";
-echo $_SERVER['QUERY_STRING'];
+if ($debug) { echo $_SERVER['QUERY_STRING']; }
 $x = array();
 if ($_POST['log_def']) {
 	$x[0]=array('D');
