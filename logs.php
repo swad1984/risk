@@ -34,7 +34,7 @@ try {
 		if ($row["SERVER"] || $row['LTYPE']) {
 			$inr = $conn->query("update sme_hooks.risk_logs set chdate = sysdate, res=0, getm=".$_POST['getm']." where server='".$row["SERVER"]."' and ltype='".$z[0]."'");
 			if ($debug) { print_r($inr); }
-			echo "<br>";
+			if ($debug) { echo "<br>"; }
 		} else {
 			$inr = $conn->query("insert into sme_hooks.risk_logs (server, ltype, chdate, res, getm) VALUES ('".$row["SYS_IP"]."', '".$z[0]."', sysdate, 0, ".$_POST['getm'].")");
 			print_r($inr);
