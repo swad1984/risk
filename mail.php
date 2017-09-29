@@ -1,7 +1,7 @@
 <?php
 
 include "connect.php";
-
+echo "Try build email message";
 try {
 	$mail = $conn->prepare("INSERT INTO SME_HOOKS.emails_queue (MESSAGE_ID,RECIPIENT_ADDRES,SUBJECT,TEXT,ATTACHMENT,MSG_STATUS,STORE_MSG_DATE,SESSION_ID,ATTACHMENT_FILENAME) 
 						VALUES (sme_hooks.seq_emails_queue.nextval
