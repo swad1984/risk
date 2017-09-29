@@ -5,9 +5,11 @@ if ($debug) { echo $_SERVER['QUERY_STRING']; }
 $x = array();
 if ($_POST['log_def']) {
 	$x[0]=array('D');
+	if ($debug) { echo $x[0]; }
 }
 if ($_POST['log_wrap']) {
 	$x[1]=array('W');
+	if ($debug) { echo $x[1]; }
 }
 //print_r($x);
 
