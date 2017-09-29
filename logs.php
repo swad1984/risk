@@ -23,7 +23,7 @@ try {
 
 	$sql = "select sys_ip, server, ltype from sme.connections c left join sme_hooks.risk_logs s on c.sys_ip=s.server and ltype='".$z[0]."'";
 	if ($debug) { echo $sql; }
-	echo "<br>";
+	if ($debug) { echo "<br>"; }
 	$ins = $conn->prepare($sql);
 	$ins->execute();
 	$ins->bindColumn(1, $name, PDO::PARAM_STR, 50);
@@ -33,7 +33,7 @@ try {
 		
 		if ($row["SERVER"] || $row['LTYPE']) {
 			$inr = $conn->query("update sme_hooks.risk_logs set chdate = sysdate, res=0, getm=".$_POST['getm']." where server='".$row["SERVER"]."' and ltype='".$z[0]."'");
-			print_r($inr);
+			if ($debug) { print_r($inr); }
 			echo "<br>";
 		} else {
 			$inr = $conn->query("insert into sme_hooks.risk_logs (server, ltype, chdate, res, getm) VALUES ('".$row["SYS_IP"]."', '".$z[0]."', sysdate, 0, ".$_POST['getm'].")");
